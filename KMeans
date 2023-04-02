@@ -1,0 +1,23 @@
+% Load image
+pkg load image;
+img = imread('baboon.jpg');
+
+% Convert image to 2D matrix
+img_reshaped = reshape(img, [], size(img, 3));
+
+% Apply K-Means clustering on image pixels
+num_clusters = 20;
+[cluster_idx, cluster_centers] = kmeans(double(img_reshaped), num_clusters);
+
+% Reshape cluster indices into original image shape
+cluster_idx_reshaped = reshape(cluster_idx, size(img, 1), size(img, 2));
+
+% Display segmented image
+figure;
+imshow(cluster_idx_reshaped, []);
+title('Segmented Image');
+
+% Display cluster centers (representative colors for each region)
+figure;
+imshow(uint8(cluster_centers));
+title('Cluster Centers');

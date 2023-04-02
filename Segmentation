@@ -1,0 +1,15 @@
+% Load image
+pkg load image;
+img = imread('image.jpg');
+
+% Convert image to grayscale
+img_gray = rgb2gray(img);
+
+% Apply Otsu's thresholding method to segment the image
+threshold = graythresh(img_gray);
+
+% Change the resolution by spatial segmentation
+img_gray = imresize(imresize(img_gray,1/8),8);
+
+% Show the image
+imshow(img_gray);
