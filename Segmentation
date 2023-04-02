@@ -1,6 +1,6 @@
 % Load image
 pkg load image;
-img = imread('image.jpg');
+img = imread('baboon.jpg');
 
 % Convert image to grayscale
 img_gray = rgb2gray(img);
