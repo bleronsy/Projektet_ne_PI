@@ -1,0 +1,4 @@
+filter_size = 3;
+filter_matrix = ones(filter_size) / filter_size^2;
+filtered_img = imfilter(I, filter_matrix);
+imshow(filtered_img);
